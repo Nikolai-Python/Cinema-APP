@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Удаление</h1>
+    <form action="" method="post">{% csrf_token %}
+        <p>Вы действительно хотите удалить "{{ seans.seans }}"?</p>
+        <button class="btn btn-danger ml-2" type="submit">Подтверждаю</button>
+    </form>
+{% endblock %}

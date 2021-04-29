@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="cinema-entry">
+    <h2>{{ object.title }}</h2>
+        <p><span class="text-muted"> {{ cinema.address }}</span></p>
+</div>
+    <div class="card-address">
+        <p><span class="font-weight-bold">Все сеансы:<p>
+            {% for seans in cinema.seanses.all %}
+                <p>{{ seans.date }} в {{ seans.time }}
+                <span class="font-weight-bold">{{ seans }}</span> |
+                <a href="{% url 'seans_edit' seans.pk %}">Редактировать</a> |
+                <a href="{% url 'seans_delete' seans.pk %}">Удалить</a>
+            {% endfor %}                
+    </div>
+    <p><a class="btn btn-success ml-2" href="{% url 'seans_new' %}" role="button">Добавить сеанс</a><p>
+
+{% endblock content %}
+
+
+
+
+
